@@ -1,0 +1,39 @@
+<% @page_title = 'Welcome to Ruby on Rails Tutorials.' %>
+<% @page_subtitle = 'Brought to you by <a href="https://coderfactory.com" target="_blank">Coder Factory</a>.'.html_safe %>
+  <!-- Example row of columns -->
+  <div class="row">
+    <div class="col-md-4">
+      <div class="panel panel-default">
+      <div class="panel-body">
+        <p class="lead">
+          Latest tutorials
+        </p>
+        <% @latest_tutorials.each do |latest_tutorial| %>
+            <%= link_to latest_tutorial.title, latest_tutorial %><br>
+          <% end %>
+      </div>
+    </div>
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+      <div class="panel-body">
+        <p class="lead">
+          Popular tutorials
+        </p>
+      </div>
+    </div>
+   </div>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+      <div class="panel-body">
+        <p class="lead">
+          Tutorial Categories
+        </p>
+        <% @popular_tag_counts.each do |popular_tag| %>
+          <%= link_to popular_tag.name + ' (' + popular_tag.count.to_s + ')', tutorials_path(tag: popular_tag.name), class: 'btn btn-default' %>
+        <% end %>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>

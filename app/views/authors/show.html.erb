@@ -1,0 +1,56 @@
+<%= content_for :title, @author.full_name %>
+<% @page_title = @author.full_name %>
+<% @page_subtitle = @author.title %>
+
+
+<div class="row">
+  <div class="col m4">
+
+    <div class="card">
+      <div class="card-image">
+        <img src="<%= @author.image_url %>">
+        <span class="card-title"><%= @author.full_name %></span>
+      </div>
+      <div class="card-content">
+        <p><strong><%= @author.title %></strong></p>
+        <p><%= @author.bio.html_safe %></p>
+        <hr>
+        <%= link_to '<i class="fa fa-twitter"></i> Twitter'.html_safe, 'https://twitter.com/' + @author.twitter, class: '' %><br>
+        <%= link_to '<i class="fa fa-linkedin"></i> LinkedIn'.html_safe, @author.linkedin, class: '' %>
+        <br>
+        <%= link_to '<i class="fa fa-github"></i> Github'.html_safe, 'https://github.com/' + @author.linkedin, class: '' %><br>
+        <%= link_to '<i class="fa fa-globe"></i> Website'.html_safe, @author.website, class: '' %>
+        <% if user_signed_in? %>
+          <hr>
+          <% if @author == current_user.author %>
+            <%= link_to 'Edit', edit_author_path(@author) %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    
+  </div>
+  <div class="col m8">
+    <% @tutorials.each do |tutorial| %>
+    <div class="card">
+      <% unless tutorial.image.blank? %>
+        <div class="card-image">
+          <img src="<%= tutorial.image_url %>">
+          <span class="card-title"><%= link_to tutorial.title, tutorial %></span>
+        </div>
+      <% end %>
+      <div class="card-content">
+        <% if tutorial.image.blank? %>
+          <span class="card-title"><%= link_to tutorial.title, tutorial %></span>
+        <% end %>
+        <p><%= tutorial.intro %></p>
+      </div>
+      <div class="card-action">
+        <%= link_to 'Read more', tutorial_url(tutorial) %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+

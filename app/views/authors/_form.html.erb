@@ -1,0 +1,19 @@
+<%= simple_form_for(@author) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :user, :label_method => :email %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :title %>
+    <%= f.input :bio %>
+    <%= f.input :twitter %>
+    <%= f.input :linkedin %>
+    <%= f.input :github %>
+    <%= f.input :image %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
