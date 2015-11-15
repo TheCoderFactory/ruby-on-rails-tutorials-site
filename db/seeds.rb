@@ -1,6 +1,12 @@
 # create a default user
-User.create(email: 'user@example.com', password: '12345678')
+if User.all.count < 1
+	User.create(email: 'user@example.com', password: '12345678')
+end
 
+#create author 
+if Author.all.count < 1
+	Author.create(user_id: 1, first_name: 'Pete', last_name: 'Argent', github: 'pedrogrande', twitter: '@pedrogrande', title: 'Director of Coder Factory', bio: 'Loves coding with Ruby on Rails')
+end
 # create a single tutorial
 require 'csv'
 

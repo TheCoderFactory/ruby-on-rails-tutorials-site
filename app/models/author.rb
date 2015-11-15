@@ -1,6 +1,8 @@
 class Author < ActiveRecord::Base
   belongs_to :user
 
+  validates :first_name, :last_name, :title, :bio, presence: true
+
   mount_uploader :image, AuthorImageUploader
 
   extend FriendlyId
