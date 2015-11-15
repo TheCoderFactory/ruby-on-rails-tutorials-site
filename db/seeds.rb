@@ -1,7 +1,15 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+# create a default user
+User.create(email: 'user@example.com', password: '12345678')
+
+# create a single tutorial
+require 'csv'
+
+CSV.foreach('tutorials.csv', headers: true) do |row|
+  tutorial_hash = row.to_hash
+  tutorial = Tutorial.where(title: tutorial_hash["title"])
+  if tutorial.count == 1
+    tutorial.first.update_attributes(tutorial_hash)
+  else
+    Tutorial.create!(tutorial_hash)
+  end # end if !product.nil?
+end # end CSV.foreach
