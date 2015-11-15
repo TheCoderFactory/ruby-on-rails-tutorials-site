@@ -6,12 +6,31 @@
 <div class="row">
   <div class="col-lg-8">
     <div class="panel panel-default">
-      <div class="panel-body">
+      <div class="panel-body tutorial">
         <% unless @tutorial.image.blank? %>
           <%= image_tag @tutorial.image %>
         <% end %>
         <%= @tutorial.content.html_safe %>
-        
+        <% if user_signed_in? %>
+          <%= link_to 'Edit', edit_tutorial_path(@tutorial) %>
+        <% end %>
+      </div>
+    </div>
+    <div class="panel panel-default" id="comments">
+      <div class="panel-body">
+        <h4>Comments, questions, discussion</h4>
+        <% if user_signed_in? %>
+          <%= render 'comments/form' %>
+        <% else %>
+          <%= link_to 'Sign in to comment, ask a question or join in the discussion', new_user_session_path %>
+        <% end %>
+        <hr>
+        <% @comments.each do |comment| %>
+        <blockquote>
+          <p><strong><i class="fa fa-user"></i>  <%= comment.user.email %></strong> <i class="fa fa-calendar"></i> <%= comment.created_at.strftime('%d %b %Y') %></p>
+          <p><%= comment.content %></p>
+        </blockquote>
+        <% end %>
       </div>
     </div>
   </div>
@@ -57,6 +76,3 @@
 
 
 
-<% if user_signed_in? %>
-<%= link_to 'Edit', edit_tutorial_path(@tutorial) %>
-<% end %>

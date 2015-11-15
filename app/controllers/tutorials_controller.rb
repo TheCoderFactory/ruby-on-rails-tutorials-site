@@ -12,6 +12,8 @@ class TutorialsController < ApplicationController
   # GET /tutorials/1.json
   def show
     @author = @tutorial.user.author
+    @comment = Comment.new
+    @comments = @tutorial.comments.includes(:user).reverse_chron_order
   end
 
   # GET /tutorials/new

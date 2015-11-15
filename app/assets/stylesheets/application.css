@@ -33,6 +33,18 @@
    background-color: #f5f5f5;
  }
 
+.tutorial p {
+  padding: 10px 0;
+}
+
+blockquote {
+  background-color: #EEF;
+}
+
+blockquote {
+  font-family:Menlo,Monaco,Consolas,"Courier New",monospace
+}
+
 hr {
   margin: 40px 0;
   height:8px;

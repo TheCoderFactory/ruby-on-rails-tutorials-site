@@ -1,0 +1,13 @@
+<%= simple_form_for(@comment) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :tutorial_id, as: :hidden, input_html: { value: @tutorial.id } %>
+ 
+    <%= f.input :content, label: false, input_html: { rows: 4 }, placeholder: 'Enter your comment, question or start a discussion.' %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit 'Comment', class: 'btn btn-default' %>
+  </div>
+<% end %>
