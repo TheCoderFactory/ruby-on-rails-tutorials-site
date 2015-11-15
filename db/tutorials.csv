@@ -1,0 +1,133 @@
+user_id,title,intro,content,published,tag_list
+1,Setup Ruby on Rails on Mac OSX El Capitan,There are so many different ways to set up Ruby on Rails on Mac. This is the way we help our students at Coder Factory get setup. And it works everytime.,"<h2>Installing Rails on Mac</h2>
+
+<div class=""alert alert-info"" role=""alert"">
+	<p>This tutorial walks you through setting up Ruby on Rails for the following Mac OSX versions:</p>
+	<ul>
+		<li>10.9 (Mavericks)</li>
+		<li>10.10 (Yosemite)</li>
+		<li>10.11 (El Capitan)</li>
+	</ul>
+	<p>If you are using an earlier version of Mac, it is highly advisable to upgrade to a newer version.</p>
+</div>
+
+<h3>Setup steps in brief</h3>
+<ol>
+	<li>Install Command Line Tools</li>
+	<li>Install Homebrew</li>
+	<li>Install RVM and Ruby</li>
+	<li>Install Rails</li>
+</ol>
+
+<hr>
+<h3>1.Install Command Line Tools</h3>
+<p>The Command Line Tools are a part of Apple's XCode IDE (Integrated Development Environment) but you can install the Tools on their own without XCode.</p>
+
+<p>The Command Line Tools contain the GCC (GNU Compiler Collection). This is a key component of the GNU Toolchain, a collection of tools used for developing software.</p>
+
+<blockquote>This package enables UNIX-style development via Terminal by installing command line developer tools, as well as OS X SDK frameworks and headers. Many useful tools are included, such as the Apple LLVM compiler, linker, and Make.</blockquote>
+
+<h4>1.1 Open your terminal</h4>
+<p>1.2 Press Cmd + Space to bring up your Spotlight Search function. Type <code>terminal</code> and hit the <code>Enter</code> key.</p>
+<p>1.3 When the terminal window has opened, type in the following command and hit <code>Enter</code></p>
+<pre><code>xcode-select --install</code></pre>
+
+<p>1.4 You will be prompted to Install Command Line Tools. Click on the Install button, enter your password if asked and wait for the download to complete.</p>
+<p>1.5 When the download has completed, install the download package</p>
+<p>1.6 To check that the Command Line Tools are installed properly, type the following command into your terminal window</p>
+<p><pre><code>gcc --version</code></pre></p>
+<p>If the Command Line Tools are installed successfully, you will see output similar to the following:</p>
+<blockquote>
+	Configured with: --prefix=/Applications/Xcode.app/Contents/Developer/usr --with-gxx-include-dir=/usr/include/c++/4.2.1
+  Apple LLVM version 5.1 (clang-503.0.40) (based on LLVM 3.4svn)
+  Target: x86_64-apple-darwin13.2.0
+  Thread model: posix
+</blockquote>
+
+<hr>
+<h3>2. Install Homebrew</h3>
+<p><a href=""http://brew.sh/"" target=""_blank"">Homebrew</a> is a 'package manager' for OSX. It helps by installing and updating programming tools for your system.</p>
+
+<p>2.1 In your terminal, copy the following command.</p>
+<pre><code>ruby -e ""$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)""</code></pre>
+<p>2.2 Keep an eye on the output in the terminal. It may ask you to hit the RETURN key or enter your computer's password.</p>
+<div class=""alert alert-warning"">
+	<p>NOTE: When you type your password into the terminal, it looks like your typing is not working - but it is. </p>
+</div>
+<p>2.3 When this install has completed type the following command into your terminal and hit Enter</p>
+<pre><code>brew doctor</code></pre>
+
+<hr>
+
+<h3>3. Install RVM (Ruby Version Manager) and Ruby</h3>
+<p><a href=""https://rvm.io"" target=""_blank"">RVM</a> helps you manage multiple versions of Ruby on your machine (computer). This is future proofing your Mac so it is easier to upgrade your Ruby versions when needed.</p>
+
+<p>3.1 Type the following command into your terminal and hit Enter.</p>
+<pre><code>\curl -sSL https://get.rvm.io | bash -s stable</code></pre>
+	
+<p>This step may take a while to install all the required packages.</p>
+<p>3.2 Once this process has completed and you are returned to the prompt, type (or copy) the following command into your terminal</p>
+<pre><code>source ~/.rvm/scripts/rvm</code></pre>
+
+<p>3.3 Install the latest version of Ruby by typing the following command into your terminal.</p>
+<pre><code>rvm install 2.2.3</code></pre>
+
+<p>You can check which is the latest version of Ruby by visiting the <a href=""https://www.ruby-lang.org/en/downloads/"" target=""_blank"">official download page</a>.</p>
+
+<hr>
+
+<h3>4. Install Ruby on Rails</h3>
+
+<p>Rails is just a giant set of Ruby gems and you can use RVM to create 'gemsets' for different projects. A gemset is a specific version of Ruby associated with a particular version of Rails and associated gems.</p>
+
+<p>4.1 Create a gemset by entering the following command in your terminal.</p>
+<pre><code>rvm use ruby-2.2.3@rails-424 --create</code></pre>
+
+<p>4.2 Install Ruby on Rails by entering the following command in your terminal.</p>
+<pre><code>gem install rails --no-ri --no-rdoc</code></pre>
+
+<p>This will take a couple of minutes to complete.</p>
+
+<p>4.3 Set this as the default gemset for your system by entering the following command.</p>
+<pre><code>rvm use ruby-2.2.3@rails-424 --default</code></pre>
+
+<hr>
+
+<p>You're done!</p>
+
+<p>Test your system is ready by entering the following two commands and seeing the versions of Ruby and Rails</p>
+<pre><code>ruby -v</code></pre>
+<pre><code>rails -v</code></pre>
+",TRUE,"setup, rvm, homebrew, mac OS X, el capitan"
+1,Rails set up for Windows,This is the easiest way to do it,"<article class=""markdown-body entry-content"" itemprop=""mainContentOfPage""><h1><a id=""user-content-install-rails-on-windows"" class=""anchor"" href=""#install-rails-on-windows"" aria-hidden=""true""><span class=""octicon octicon-link""></span></a>Install Rails on Windows</h1>
+
+<p>Note: Even if you are using a 64bit version of Windows, it is advised to use the 32bit versions of the Ruby Installer and Devkit as they are more stable.</p>
+
+<ol>
+<li><p>Go to the RubyInstaller download page. <a href=""http://railsftw.bryanbibat.net/"">http://railsftw.bryanbibat.net/</a></p>
+
+<p>Click on the Download button, download and install the package.</p></li>
+<li><p>Download the Devkit for the 2.0 and 2.1 version of RubyInstaller <a href=""http://rubyinstaller.org/downloads"">http://rubyinstaller.org/downloads</a>.</p>
+
+<p>Currently: <code>DevKit-mingw64-32-4.7.2-20130224-1151-sfx.exe</code></p></li>
+<li><p>Once RailsFTW is installed, you will have a program called ""Start Command Prompt with Ruby"".</p>
+
+<p>Open this and type <code>ruby -v</code> to see that your Ruby has been installed correctly.
+Also type <code>rails -v</code> to see that Rails has been installed.</p></li>
+<li><p>Download and run DevKit . It is a zip file and will ask where you want to extract the files. Choose the RailsFTW folder which will be directly on your C: drive.</p></li>
+<li><p>When the files are extracted, open up a command prompt window. (Start menu, type <code>cmd</code> and hit enter)</p></li>
+<li><p>Navigate the to the DevKit directory.</p>
+
+<pre><code>cd C:\RailsFTW
+</code></pre></li>
+<li><p>Run the following commands. More information here: <a href=""https://github.com/oneclick/rubyinstaller/wiki/Development-Kit"">https://github.com/oneclick/rubyinstaller/wiki/Development-Kit</a></p>
+
+<pre><code>ruby dk.rb init
+ruby dk.rb install
+</code></pre></li>
+<li><p>Install Node.js from their website: <a href=""https://nodejs.org/download/"">https://nodejs.org/download/</a></p>
+
+<p>Then restart your computer.</p></li>
+<li><p>You should now be able to create Rails apps! Congratulations!!</p></li>
+</ol>
+</article>",TRUE,"setup, windows, railsftw, ruby installer, devkit"

@@ -4,7 +4,7 @@ User.create(email: 'user@example.com', password: '12345678')
 # create a single tutorial
 require 'csv'
 
-CSV.foreach('tutorials.csv', headers: true) do |row|
+CSV.foreach('db/tutorials.csv', headers: true) do |row|
   tutorial_hash = row.to_hash
   tutorial = Tutorial.where(title: tutorial_hash["title"])
   if tutorial.count == 1
