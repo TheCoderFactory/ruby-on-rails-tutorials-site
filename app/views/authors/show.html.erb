@@ -4,21 +4,21 @@
 
 
 <div class="row">
-  <div class="col m4">
+  <div class="col-lg-4">
 
-    <div class="card">
-      <div class="card-image">
-        <img src="<%= @author.image_url %>">
-        <span class="card-title"><%= @author.full_name %></span>
-      </div>
-      <div class="card-content">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        
+          <img src="<%= @author.image_url %>" class="img-responsive">
+          <h3><%= @author.full_name %></h3>
+      
         <p><strong><%= @author.title %></strong></p>
         <p><%= @author.bio.html_safe %></p>
         <hr>
         <%= link_to '<i class="fa fa-twitter"></i> Twitter'.html_safe, 'https://twitter.com/' + @author.twitter, class: '' %><br>
         <%= link_to '<i class="fa fa-linkedin"></i> LinkedIn'.html_safe, @author.linkedin, class: '' %>
         <br>
-        <%= link_to '<i class="fa fa-github"></i> Github'.html_safe, 'https://github.com/' + @author.linkedin, class: '' %><br>
+        <%= link_to '<i class="fa fa-github"></i> Github'.html_safe, 'https://github.com/' + @author.github, class: '' %><br>
         <%= link_to '<i class="fa fa-globe"></i> Website'.html_safe, @author.website, class: '' %>
         <% if user_signed_in? %>
           <hr>
@@ -30,22 +30,18 @@
     </div>
     
   </div>
-  <div class="col m8">
+  <div class="col-lg-8">
     <% @tutorials.each do |tutorial| %>
-    <div class="card">
-      <% unless tutorial.image.blank? %>
-        <div class="card-image">
-          <img src="<%= tutorial.image_url %>">
-          <span class="card-title"><%= link_to tutorial.title, tutorial %></span>
-        </div>
-      <% end %>
-      <div class="card-content">
-        <% if tutorial.image.blank? %>
-          <span class="card-title"><%= link_to tutorial.title, tutorial %></span>
-        <% end %>
+    <div class="panel panel-default">
+      
+      <div class="panel-body">
+        <img src="<%= tutorial.image_url %>">
+          <h3><%= link_to tutorial.title, tutorial %></h3>
+        
+      
         <p><%= tutorial.intro %></p>
       </div>
-      <div class="card-action">
+      <div class="panel-footer">
         <%= link_to 'Read more', tutorial_url(tutorial) %>
       </div>
     </div>
